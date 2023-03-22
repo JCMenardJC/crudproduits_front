@@ -1,3 +1,5 @@
+//Composant: formulaire qui permet d'ajouter un produit avec la methode "POST"
+
 import { useState } from "react";
 import { Tproduit } from "../types/produit.type";
 

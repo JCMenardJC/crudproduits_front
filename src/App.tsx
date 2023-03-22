@@ -22,13 +22,18 @@ function App() {
         Produits
       </div>
 
+      {/* Affichage du bouton "Ajouter" avec une constante définie en haut de la fonction */}
       <div>{buttonAdd()}</div>
+
+      {/*  Affichage du boutton "Ajouter" */}
       {page === "cancel" && <ButtonAdd setPage={setPage} />}
+
+      {/* Affichage du formulaire pour une modification de produit */}
       {page === "updateForm" && (
         <UpdateForm setPage={setPage} updateProd={updateProd} />
       )}
 
-      {/* Affichage de la liste des produits */}
+      {/* Affichage de la liste des produits dans un tableau*/}
       <TableauProduits setPage={setPage} setUpdateProd={setUpdateProd} />
     </div>
   );

@@ -1,3 +1,5 @@
+//Composant: Bouton qui permet d'afficher le formulaire d'Ajout d'un produit
+
 function ButtonAdd(props: { setPage: any }) {
   return (
     <div>

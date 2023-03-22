@@ -1,3 +1,7 @@
+/* Composant : Tableau qui permet d'afficher les produits présent dans la base de donnée.
+Chaques lignes présentes le produit (id, nom, prix, quantité) avec un bouton pour modifier le produit en affichant le formulaire avec les onfos produit
+et un autre bouton permettant de supprimer un produit avec la methode "DELETE". */
+
 import React, { useEffect, useState } from "react";
 import { Tproduit } from "../types/produit.type";
 

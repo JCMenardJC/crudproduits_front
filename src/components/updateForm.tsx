@@ -1,3 +1,5 @@
+//Composant: formulaire qui permet de modifier un produit avec la methode "PATCH"
+
 import { Tproduit } from "../types/produit.type";
 import { useState } from "react";
 
