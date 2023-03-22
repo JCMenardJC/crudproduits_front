@@ -37,17 +37,13 @@ function Formulaire(props: { setPage: any }) {
         body: JSON.stringify(produit),
       });
       const responseJson = await response.json();
-      //console.log(responseJson);
 
-      /* if (responseJson.statusCode !== 201) {
-        return alert(responseJson.message.map((data: any) => data + `\n`));
-      } */
       alert(responseJson.message);
-      /*user.animal?.push(responseJson.data); */
     }
 
     fetchData();
   };
+
   return (
     <div className="border m-5 p-3">
       <div className="mb-3">
@@ -103,18 +99,21 @@ function Formulaire(props: { setPage: any }) {
           className="btn btn-primary"
           type="submit"
           onClick={(e) => {
-            {
-              props.setPage("");
-            }
-            {
-              newProduct(e);
-            }
-            {
-              window.location.reload();
-            }
+            props.setPage("");
+
+            newProduct(e);
+
+            window.location.reload();
           }}
         >
           Ajouter
+        </button>
+        <button
+          className="btn btn-warning ms-5"
+          type="button"
+          onClick={() => props.setPage("cancel")}
+        >
+          Annuler
         </button>
       </div>
     </div>

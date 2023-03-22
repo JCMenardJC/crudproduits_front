@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Tproduit } from "../types/produit.type";
 
-function TableauProduits() {
-  const [prod, setProd]: any = useState();
+function TableauProduits(props: { setPage: any; setUpdateProd: any }) {
+  const [prod, setProd] = useState<Tproduit[]>();
 
   const baseUrl = "http://localhost:3000/produits";
   const options = {
@@ -25,10 +25,26 @@ function TableauProduits() {
       <td>{data.prix}</td>
       <td>{data.quantite}</td>
       <td>
-        <button type="button" className="btn btn-primary me-1">
+        <button
+          type="button"
+          className="btn btn-primary m-1"
+          onClick={() => {
+            props.setPage("updateForm");
+            props.setUpdateProd(data);
+          }}
+        >
           Editer
         </button>
-        <button type="button" className="btn btn-danger">
+        <button
+          type="button"
+          className="btn btn-danger m-1"
+          onClick={async function deletePost() {
+            await fetch(`http://localhost:3000/produits/${data.id}`, {
+              method: "DELETE",
+            });
+            window.location.reload();
+          }}
+        >
           Supprimer
         </button>
       </td>
@@ -37,13 +53,13 @@ function TableauProduits() {
 
   return (
     <div className="m-5">
-      <table className="table table-hover">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nom</th>
             <th scope="col">Prix</th>
-            <th scope="col">Quantité</th>
+            <th scope="col">Qté</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
